@@ -61,11 +61,6 @@ public class UserTests {
 		Response response = UserEndPoints.updateUser(this.userPayload.getUsername(), userPayload);
 		response.then().log().body();
 		Assert.assertEquals(response.getStatusCode(), 200);
-		
-		
-		Response responseAfterupdate = UserEndPoints.updateUser(this.userPayload.getUsername(), userPayload);
-		Assert.assertEquals(responseAfterupdate.getStatusCode(), 200);
-		
 	}
 	
 	@Test(priority=4)
@@ -76,5 +71,6 @@ public class UserTests {
 		response.then().log().body();
 		Assert.assertEquals(response.getStatusCode(), 200);
 	}
+	
 	
 }

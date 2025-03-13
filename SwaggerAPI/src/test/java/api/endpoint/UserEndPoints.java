@@ -1,15 +1,16 @@
 package api.endpoint;
+import static io.restassured.RestAssured.*;
 
-import static io.restassured.RestAssured.given;
 
 import api.payload.User;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class UserEndPoints {
-	
-	public static Response createUser(User payload) {
-		
+public class UserEndPoints 
+{
+
+	public static Response createUser(User payload) 
+	{
 		Response response = given()
 			.contentType(ContentType.JSON)
 			.accept(ContentType.JSON)
@@ -21,19 +22,19 @@ public class UserEndPoints {
 	}
 	
 	
-	public static Response readUser(String userName) {
-		
+	public static Response readUser(String userName) 
+	{
 		Response response = given()
-				.pathParam("username", userName)
-			
+			.pathParam("username", userName)
 		.when()
 			.get(Routes.get_url);
 		
 		return response;
 	}
-
-	public static Response updateUser(String userName, User payload) {
-		
+	
+	
+	public static Response updateUser(String userName,User payload) 
+	{
 		Response response = given()
 			.contentType(ContentType.JSON)
 			.accept(ContentType.JSON)
@@ -45,14 +46,15 @@ public class UserEndPoints {
 		return response;
 	}
 	
-	public static Response deleteUser(String userName) {
-		
+	
+	public static Response deleteUser(String userName) 
+	{
 		Response response = given()
-				.pathParam("username", userName)
-			
+			.pathParam("username", userName)
 		.when()
-			.delete(Routes.delete_url);
+			.get(Routes.delete_url);
 		
 		return response;
 	}
+	
 }
